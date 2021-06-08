@@ -61,4 +61,17 @@ public class quaternion {
     	}
     	else if (m[1][1] > m[2][2]) { 
     		float S = (float)Math.sqrt(1.0 + m[1][1] - m[0][0] - m[2][2]) * 2;
-    
+    		w = (m[0][2] - m[2][0]) / S;
+    		x = (m[0][1] + m[1][0]) / S; 
+    		y = (float)0.25 * S;
+    		z = (m[1][2] + m[2][1]) / S; 
+    	} 
+    	else { 
+    		float S = (float)Math.sqrt(1.0 + m[2][2] - m[0][0] - m[1][1]) * 2;
+    		w = (m[1][0] - m[0][1]) / S;
+    		x = (m[0][2] + m[2][0]) / S;
+    		y = (m[1][2] + m[2][1]) / S;
+    		z = (float)0.25 * S;
+    	}
+    }
+}
